@@ -1,0 +1,11 @@
+ada 2 tipe dlm typescript :
+tipe antation(impliccit)  dan tipe inferene( iexplicit):
+
+contoh anotation : //disibutkan tipedatanya dulu kyk java/c++
+let name:string= ;francis'
+const number:string=23
+var array:[]=['one','two',three]
+
+tipe explicit atau inference:
+let name = 'francis ' //disini gak dibutkan typedatanya dlu
+
