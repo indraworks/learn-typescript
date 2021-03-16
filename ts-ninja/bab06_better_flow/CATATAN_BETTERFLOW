@@ -1,0 +1,40 @@
+jadi gini critanya biasany akalau buat program maka 
+ts  script dimasukan src folder 
+hasil smua file dan termasuk file statis /tampilpan di masukan dalam 
+dir public dimana biasanya terdri dari :
+public/file html
+       file css
+       file output js hasil dari ts compiler
+       dan file statis lainnya
+
+utk src mrupakan file kit abuat init dulu di folder 
+bab06_better_flow
+cara bab06_better_flow> tsc --init
+ini akan buat filr tsconfig.json nah buka filenya
+utk "targe" kita bisa ganti dari es5 mnjdi es6 lebih modern 
+
+nah yg                          
+        // "outDir": "./",  
+        // "rootDir://
+        kita uncomment kita ganti dengan file dir public utk 
+        outputnya
+        dan utk source dir 
+        kita uncoment juga dan kita ganti dengan src 
+        "outDir":"./public"
+        "rootDir" :"./src"
+
+   paling bawah kita tulis :
+    "include": ["src"]
+    maksudnya adalah agar hanya file2 ts under dir src saja yg dicompile oleh 
+    typescript compiler ,sebab jika tidak ditulis maka smua file ts dari root directory
+    yang ada di dlm dir bab06_better_flow akan diekskusi dan hasilnya akan di kluarkan '
+    outputnya di dir public
+
+    kalau mau compile tinggal ketik tsc --w
+
+
+   Note --Bab 07 sd seterunya ada di sini ! dilink dari html file compiler jsnya !
+
+
+type scrip buat latihan :
+//https://medium.com/@peatiscoding/typescripts-with-redux-redux-thunk-recipe-fcce4ffca405

@@ -5,7 +5,7 @@ class Person {
   //varibale dan typedatanya 
   myfirstName :string; 
   mylastName:string;
-  myAge :number;
+  // myAge :number;
    //firstname :string,lastname:string adalah variable parameter sbrang nama 
    //mis anjing tahi kontol trserah !
    //didalam kalang kosntrucktor wajib :
