@@ -27,19 +27,19 @@ func A(num1:number,num2:number,p?:string){
 
 */
 A: Function;
-var A = function (num1, num2, p) {
+const A = (num1, num2, p) => {
     console.log('ini adalah p = ', p);
     return num1 + num2;
 };
-var b = A(12, 13, 'hello indra');
+let b = A(12, 13, 'hello indra');
 console.log('hasil b = ', b);
 //kalau param yg p tidak di tulis gak akan eror conth
-var c = A(14, 18);
+let c = A(14, 18);
 console.log('hasil tambah = ', c);
 //utk suatau function yg tidak kembali adalah diberi void jadi tikda balik
 //basanta langsung tampil ke screen
 //menyayakan bahwa hasil akhir dari function adalah tidak dikembalikan 
-var kata = function (kata1) {
+const kata = (kata1) => {
     console.log(kata1);
 };
 kata('selamat siang pak indra');

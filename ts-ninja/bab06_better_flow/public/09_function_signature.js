@@ -12,16 +12,16 @@ harus nurut sama signature atau initial awal
 
 */
 //asal mula kita boleh nulis type data dari sbuah function sbb
-var myFunc;
+let myFunc;
 //cara lain init function terdiri dari 3 biasanya
 //example signature a
 //cara pertama init sbuah func 
 //example 1 init tapi hasil functiom gak di kembalikan stlah tanda => void berarti tidak 
 //ada nilai return 
-var myexampleFunc;
+let myexampleFunc;
 //stlah buat signaturenya kita assign
-myexampleFunc = function (kalimat1, kalimat2, kalimat3) {
-    console.log(" hello ini " + kalimat1 + " dan ini kalimat2:" + kalimat2 + " dan ini " + kalimat3 + " ");
+myexampleFunc = (kalimat1, kalimat2, kalimat3) => {
+    console.log(` hello ini ${kalimat1} dan ini kalimat2:${kalimat2} dan ini ${kalimat3} `);
 };
 //kita panggil functionnya
 //jadi sekali lagi harus ikut dari signaturenya gak bisa 
@@ -31,9 +31,9 @@ myexampleFunc(3, 4, 'sore2 hitung');
 // example 2
 //example yg kedua adalah hasil output dari function adalah return
 // berupa number sbb:
-var calc; //kit auda sign dng return sbuah number
+let calc; //kit auda sign dng return sbuah number
 //kita asign value berdasarkan tipe datanya
-calc = function (angka1, angka2, tulisan) {
+calc = (angka1, angka2, tulisan) => {
     if (tulisan === 'add') {
         return angka1 + angka2;
     }
@@ -42,7 +42,7 @@ calc = function (angka1, angka2, tulisan) {
     }
 };
 //kita panggil functionnya example 2
-var myval = calc(1, 3, 'add');
+let myval = calc(1, 3, 'add');
 console.log('hasil pemjumlahan = ', myval);
 myval = calc(4, 8, "kurang");
 console.log('hasil pengurangan = ', myval);
@@ -52,18 +52,18 @@ console.log('hasil pengurangan = ', myval);
 //atau berupa kembalian object/number/string 
 //signatur atau inisial function berupa parameter object
 //misal hasil return brupa object
-var logdetails;
+let logdetails;
 //kita assing value atau nilaiberdasarkan type datanya
-logdetails = function (teknisi) {
+logdetails = (teknisi) => {
     return teknisi;
 };
 //kita panggil utk digunakan function teknisi
-var siswa = logdetails({ name: 'syakinah', activity: 'jaga rel kereta api', badge: 4 });
+let siswa = logdetails({ name: 'syakinah', activity: 'jaga rel kereta api', badge: 4 });
 console.log('log detail syakinah =', siswa);
 //kita tulis lagi :
-logdetails = function (teknisi) {
+logdetails = (teknisi) => {
     return teknisi;
 };
-var jeruk = { name: 'purwati', activity: 'makan', badge: 3 };
-var hasil = logdetails(jeruk);
+let jeruk = { name: 'purwati', activity: 'makan', badge: 3 };
+let hasil = logdetails(jeruk);
 console.log('hasil =', hasil);

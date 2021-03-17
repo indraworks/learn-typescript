@@ -1,18 +1,23 @@
-"use strict";
-//class
-class Invoice {
-    constructor(c, d, a) {
-        //men-assign value dari instance lewat parameter ke 
-        // property
-        this.client = c;
-        this.details = d;
-        this.amount = a;
-        //buat method tampilkan hasil transaksi
-    }
-    format() {
-        return `${this.client} owe money $${this.amount} USD  for : ${this.details}`;
-    }
-}
+/*
+di ts saat ini sudah suport es6 dan > ...es next
+utk itu kit abisa memecah program kita dalam module2
+nah cara edit dulu tsconfig.ts  replace es5 -> e6
+                                        commonjs jadi es2015
+di public/index.html tambahkan pada script type="module"
+setelahnya buat dir classes/ buat file Invoice.ts
+nah kemudian export module tsb sprti kita di js
+nah di sandbox.ts /atau saaat ini kita gunakan module.ts
+ import nah yg dimport jgn lupa adalah file js
+nya karena di baca oleh browser di file index.html
+import {Invoice} from '../class/invoice.js' //ingat js bukan ts
+
+nah nnnti kita kalau udah slsai module ini kita buat
+bundle pake webpack skrgn kita lanjut interface
+stlah ini slesai smua diulang lagi buat book.js pake oop js
+kmduian pake typescript utk latihan
+
+*/
+import { Invoice } from './class/Invoice.js';
 //kita instansiate /buat object invoice
 let invoice01 = new Invoice('indra', 'keperluan pengembanga softare & jaringan ', 300);
 let invoice02 = new Invoice('hendy', 'biaya training dan pelatihan ', 400);
@@ -34,14 +39,18 @@ arrayInvoice.push(invoice02);
 //jawab:
 //arrayInvoice.push({name:'kujang',details:'pinjam uang',amount:3000}); -->hasil tidak bisa !
 console.log(arrayInvoice);
-console.log(invoice01.format());
-console.log(invoice02.format());
+// console.log(invoice01.format())
+// console.log(invoice02.format())
+//kita bisa pake forEach
+arrayInvoice.forEach(invoice => {
+    console.log(invoice.format());
+});
 //yang jadi masalah adalah bahwa properti dari class
 //bersifat public shingga bisa diakses nilainya dari luar dan 
 // bisa diganti langsung utk kita akan buat sebgai static
 // contoh dibawah ini bisa diubah2
-invoice01.client = 'rujak cingur'; //mngubah client dari indra ke rujak cingur
-console.log(invoice01.format());
+//invoice01.client= 'rujak cingur' //mngubah client dari indra ke rujak cingur
+//console.log(invoice01.format());
 /////////////////////
 //form
 const form = document.querySelector('.new-item-form');
@@ -59,37 +68,3 @@ form.addEventListener('submit', (e) => {
     // ubah
     );
 });
-/*
-catatan pwnting tentang class nanti bisa refresh dengan class yg ada di jvascript
-sama
-jadi class adalah blue print atau cetakan biru ,trdiri atas property
-yang berisi dari key dan value jadi propertuy ini merupakan variable
-global didalam class,ini defaultnya
-nah pada saat cetak atau instansiate maka nilai dari object yg akan dicetak
-dimasukan kedalam class melalui passing parameter di constructor yg ada didalam class
-construtor sendiri adalah gunanya utk mengisikan nilai object kedalam properti class
-atau dgn kata lain meng-assign ke dalam nilai properti class
-jadi ketika dicetak object tadi sudah punya value propertinya
-
-contoh :
-class Invoice {
- //ini dibawah di sebut properti class
- clients:string,
- details:string,
- amount:number
-
- constructor(a:string,b:details,c:number)
-   //buat constructor passing parameter agar properti dari obj nnti sudah ada
-   //nilainya karena dari properti class ini yg diasigned argumen
-   //dari object yg akan di cetak
-   this.clients = a;
-   this.details = b;
-   this.details= c;
-
-}
-//kita buat metode class
- 
-
-}
-
-*/
