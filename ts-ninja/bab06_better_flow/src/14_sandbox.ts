@@ -12,11 +12,11 @@ cara :
 
 */
 
-
-//import paymemt class
-import {Payment} from './class/Payment.js'
 //import invoice class
 import {Invoice} from './class/Invoice.js'
+//import paymemt class
+import {Payment} from './class/Payment.js'
+
 //import HasFormater 
 import { HashFormater } from './interfaces/HashFormater.js';
 //import  templateList class
@@ -33,32 +33,44 @@ const list = new ListTemplate(ul);
 //form
 const form = document.querySelector('.new-item-form') as HTMLFormElement;
 //input
-   const type =document.querySelector('#type') as HTMLSelectElement;
-   const tofrom = document.querySelector('#toform') as HTMLInputElement;
+   const type = document.querySelector('#type') as HTMLSelectElement;
+   const tofrom = document.querySelector('#tofrom') as HTMLInputElement;
    const details = document.querySelector('#details') as HTMLInputElement;
    const amount = document.querySelector('#amount') as HTMLInputElement;
 
 //event 
-form.addEventListener('submit',(e)=> {
-    e.preventDefault();
+form.addEventListener('submit',(e:Event)=> {
+    
+   e.preventDefault();
    //nah skrgn kit aaplikasikan pada saat tekan tombol submit
    //kita instance sbuah object dari class apakah invoice atau payment
    //tergantung dari tombol select sblumnya yg dipilih
    let doc:HashFormater ; //kita init var doc sbgai type dari class HashFormater
-   if (type.value === 'invoice') {
+   let a = type.value;
+   let y = 'invoice'
+   // console.log(a);
+   // console.log(typeof(a));
+   //udah gak bisa kalau (type.value === 'invoice) 
+   if (!(a.match(y) === null)) {
      //create instance invoice
       doc = new Invoice(tofrom.value,details.value,amount.valueAsNumber)
+      console.log(doc)
+      console.log(type.value)
+      //list.render(doc,type.value,'end')
    } else {
-     //create instance payment
-     doc = new Payment(tofrom.value,details.value,amount.valueAsNumber)
+       doc = new Payment(tofrom.value,details.value,amount.valueAsNumber)
+      console.log(doc)
+      console.log(type.value)
+     // list.render(doc,type.value,'end')
    }
+    list.render(doc,type.value,'end')
    //nah stelah jadi maka kita akan create instance juga Li 
    //yg tercreate dari Litemplate class 
 
     //sesudah list dicreate kita panggil metode classnya dan pasing 
     //pasing parameter yg dibutuhkan 
     
-   list.render(doc,type.value,"end");
+ 
 
 
 })

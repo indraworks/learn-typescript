@@ -12,8 +12,9 @@ export class Invoice implements HashFormater{
   // di constructor
 
 
- constructor(readonly client:string,
-  private details:string,
+ constructor(
+  public client:string,
+  public details:string,
   public amount:number){
     //men-assign value dari instance lewat parameter ke 
     // property

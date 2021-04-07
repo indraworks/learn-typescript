@@ -12,8 +12,8 @@ export class Payment implements HashFormater{
   // di constructor
 
 
- constructor(readonly recipient:string,
-  private details:string,
+ constructor(public recipient:string,
+  public details:string,
   public amount:number){
     //men-assign value dari instance lewat parameter ke 
     // property

@@ -11,10 +11,10 @@ cara :
     -
 
 */
-//import paymemt class
-import { Payment } from './class/Payment.js';
 //import invoice class
 import { Invoice } from './class/Invoice.js';
+//import paymemt class
+import { Payment } from './class/Payment.js';
 //import  templateList class
 import { ListTemplate } from './class/ListTemplate.js';
 //Listtemplate instansiate
@@ -27,7 +27,7 @@ const list = new ListTemplate(ul);
 const form = document.querySelector('.new-item-form');
 //input
 const type = document.querySelector('#type');
-const tofrom = document.querySelector('#toform');
+const tofrom = document.querySelector('#tofrom');
 const details = document.querySelector('#details');
 const amount = document.querySelector('#amount');
 //event 
@@ -37,19 +37,29 @@ form.addEventListener('submit', (e) => {
     //kita instance sbuah object dari class apakah invoice atau payment
     //tergantung dari tombol select sblumnya yg dipilih
     let doc; //kita init var doc sbgai type dari class HashFormater
-    if (type.value === 'invoice') {
+    let a = type.value;
+    let y = 'invoice';
+    // console.log(a);
+    // console.log(typeof(a));
+    //udah gak bisa kalau (type.value === 'invoice) 
+    if (!(a.match(y) === null)) {
         //create instance invoice
         doc = new Invoice(tofrom.value, details.value, amount.valueAsNumber);
+        console.log(doc);
+        console.log(type.value);
+        //list.render(doc,type.value,'end')
     }
     else {
-        //create instance payment
         doc = new Payment(tofrom.value, details.value, amount.valueAsNumber);
+        console.log(doc);
+        console.log(type.value);
+        // list.render(doc,type.value,'end')
     }
+    list.render(doc, type.value, 'end');
     //nah stelah jadi maka kita akan create instance juga Li 
     //yg tercreate dari Litemplate class 
     //sesudah list dicreate kita panggil metode classnya dan pasing 
     //pasing parameter yg dibutuhkan 
-    list.render(doc, type.value, "end");
 });
 /*
  console.log(
